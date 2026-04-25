@@ -1,0 +1,20 @@
+【Pygame 核心开发规范】
+1. 程序必须先执行：pygame.init() 初始化
+2. 游戏窗口固定写法：screen = pygame.display.set_mode((宽, 高))
+3. 事件循环必须包含 QUIT 退出事件，防止闪退
+4. 玩家移动使用：pygame.key.get_pressed() 连续移动
+5. 所有坐标、尺寸必须使用整数，禁止浮点数
+6. 角色移动必须做屏幕边界限制，防止出界
+7. 刷新画面：pygame.display.update() / flip()
+8. 帧率控制：clock = pygame.time.Clock()  clock.tick(60)
+
+【边界限制标准代码】
+player_x = max(0, min(player_x, SCREEN_WIDTH - PLAYER_SIZE))
+player_y = max(0, min(player_y, SCREEN_HEIGHT - PLAYER_SIZE))
+
+【颜色常量】
+RED = (255, 0, 0)
+GREEN = (0, 255, 0)
+BLUE = (0, 0, 255)
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
